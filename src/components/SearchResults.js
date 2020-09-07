@@ -1,9 +1,10 @@
 import React from "react";
 import "./SearchResults.css";
 import SearchResultItem from "./SearchResultItem";
+import Loader from "./Loader";
 
 function SearchResults(props) {
-  const { searchResults, searchParams, nominations, nominate } = props;
+  const { searchResults, searchParams, nominations, nominate, loading } = props;
 
   const movies = searchResults
     ? searchResults.map((movie, index) => {
@@ -17,11 +18,11 @@ function SearchResults(props) {
           />
         );
       })
-    : null;
+    : "No Results!";
   return (
     <>
       <h5>Search Results {searchParams && `for ${searchParams}`}</h5>
-      <ul>{movies}</ul>
+      {(loading && <Loader />) || <ul>{movies}</ul>}
     </>
   );
 }
