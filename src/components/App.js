@@ -54,8 +54,8 @@ function App() {
           setSearch({ ...search, terms: e.target.value, loading: true });
         }}
       />
-      <div className="nomination-banner">
-        {search.nominations.length >= 5 && <Banner />}
+      <div className="banner-container">
+        <Banner nominations={search.nominations} />
       </div>
       <div className="results-nominations">
         <div className="card search-results">
@@ -79,7 +79,11 @@ function App() {
           <Nominations
             nominations={search.nominations}
             removeNomination={(id) => {
-              setSearch({ ...search }, search.nominations.splice(id, 1));
+              const nominations = search.nominations.filter((nomination) => {
+                return search.nominations.indexOf(nomination) !== id;
+              });
+              setSearch({ ...search, nominations: nominations });
+              localStorage.setItem("nominations", JSON.stringify(nominations));
             }}
           />
         </div>
