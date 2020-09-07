@@ -18,6 +18,10 @@
   /* color: white; */
 }
 
+.results-nominations {
+  display: flex;
+}
+
 /* .App-link {
   color: #61dafb;
 } */

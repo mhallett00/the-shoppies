@@ -17,10 +17,10 @@ function SearchResults(props) {
           />
         );
       })
-    : "No Results!";
+    : null;
   return (
     <>
-      <h5>{searchResults && `Results for "${searchParams}"`}</h5>
+      <h5>Search Results {searchParams && `for ${searchParams}`}</h5>
       <ul>{movies}</ul>
     </>
   );
