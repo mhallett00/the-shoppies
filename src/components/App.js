@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Search from "./Search";
 import axios from "axios";
-import "./Search.css";
+import Search from "./Search";
+import Banner from "./Banner";
 import SearchResults from "./SearchResults";
 import Nominations from "./Nominations";
-import Banner from "./Banner";
 import useDebounce from "../hooks/UseDebounce";
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
     terms: "",
     results: [],
     nominations,
+    loading: false,
   });
 
   const debouncedTerms = useDebounce(search.terms, 400);
@@ -31,11 +31,16 @@ function App() {
           setSearch((search) => ({
             ...search,
             results: res.data.Search,
+            loading: false,
           }));
         })
         .catch((e) => console.log(e));
     } else {
-      return;
+      setSearch((search) => ({
+        ...search,
+        results: [],
+        loading: false,
+      }));
     }
   }, [debouncedTerms]);
 
@@ -46,7 +51,7 @@ function App() {
       </header>
       <Search
         onChange={(e) => {
-          setSearch({ ...search, terms: e.target.value });
+          setSearch({ ...search, terms: e.target.value, loading: true });
         }}
       />
       <div className="nomination-banner">
@@ -55,8 +60,7 @@ function App() {
       <div className="results-nominations">
         <div className="card search-results">
           <SearchResults
-            searchResults={search.results}
-            searchParams={search.terms}
+            loading={search.loading}
             nominations={search.nominations}
             nominate={(title, year) => {
               const nomination = { title, year };
@@ -67,6 +71,8 @@ function App() {
                 JSON.stringify(search.nominations)
               );
             }}
+            searchResults={search.results}
+            searchParams={search.terms}
           />
         </div>
         <div className="card nominations">
