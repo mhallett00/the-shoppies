@@ -18,7 +18,7 @@ jobs:
             REACT_APP_OMDB_API_KEY: ${{ secrets.REACT_APP_OMDB_API_KEY }}
 
         - name: Deploy
-          uses: mhallett00/github-pages-deploy-action@releases/v3
+          uses: jamesIves/github-pages-deploy-action@releases/v3
           with:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
             BRANCH: gh-pages
