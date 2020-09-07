@@ -1,36 +1,53 @@
-/* .App {
-  text-align: center;
-} */
+/* Globals */
+.html,
+body,
 .App {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  /* width: 50%; */
-  /* align-items: center; */
+  height: 100vh;
+  background-color: lightgray;
 }
 
 .App-the-shoppies {
-  /* background-color: #282c34; */
-  /* min-height: 100vh; */
-  /* width: 50%; */
-  /* align-items: center; */
+  width: 75%;
+}
+
+h5 {
+  margin: 0.5em;
+}
+
+li {
+  margin: 0.5em;
+  display: list;
+}
+
+/* App level */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-the-shoppies {
   font-size: calc(10px + 2vmin);
-  /* color: white; */
+}
+
+.card.search-container {
+  margin: 1em;
+  width: 75%;
 }
 
 .results-nominations {
   display: flex;
+  width: 75%;
 }
 
-/* .App-link {
-  color: #61dafb;
-} */
+.card.search-results {
+  width: 100%;
+  min-height: 20em;
+  margin: 1em;
+}
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.card.nominations {
+  width: 100%;
+  min-height: 20em;
+  margin: 1em;
+}

@@ -4,9 +4,14 @@ import Button from "react-bootstrap/Button";
 function NominationEntry(props) {
   const { title, year, removeNomination, id } = props;
   return (
-    <li className="Movie-entry">
+    <li>
       {title} ({year})
-      <Button variant="dark" type="submit" onClick={() => removeNomination(id)}>
+      <Button
+        className="nmt-btn"
+        variant="dark"
+        type="submit"
+        onClick={() => removeNomination(id)}
+      >
         Remove
       </Button>
     </li>
