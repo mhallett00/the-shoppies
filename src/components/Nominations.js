@@ -4,8 +4,6 @@ import NominationEntry from "./NominationEntry";
 
 function Nominations(props) {
   const { nominations, removeNomination } = props;
-  console.log("nominations", nominations);
-  console.log(Array.isArray(nominations));
   const movies = nominations
     ? nominations.map((movie, index) => {
         return (
@@ -21,6 +19,7 @@ function Nominations(props) {
     : "No Nominations!";
   return (
     <>
+      <h5>Your Nominations</h5>
       <ul>{movies}</ul>
     </>
   );
