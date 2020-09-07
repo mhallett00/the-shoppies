@@ -17,6 +17,7 @@ function SearchResultItem(props) {
       <li>
         {title} ({year})
         <Button
+          className="nmt-btn"
           onClick={() => nominate(title, year)}
           variant="dark"
           type="submit"
