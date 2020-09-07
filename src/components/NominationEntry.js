@@ -7,7 +7,7 @@ function NominationEntry(props) {
     <li className="Movie-entry">
       {title} ({year})
       <Button variant="dark" type="submit" onClick={() => removeNomination(id)}>
-        Unnominate
+        Remove
       </Button>
     </li>
   );
