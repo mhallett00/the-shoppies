@@ -1,0 +1,14 @@
+.nomination-enter {
+  opacity: 0;
+}
+.nomination-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.nomination-exit {
+  opacity: 1;
+}
+.nomination-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
