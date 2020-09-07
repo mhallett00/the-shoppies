@@ -40,7 +40,7 @@ function Search() {
 
     axios
       .get(
-        `http://www.omdbapi.com/?s=${search.terms}*&apikey=${process.env.REACT_APP_OMDB_API_KEY}`
+        `https://www.omdbapi.com/?s=${search.terms}*&apikey=${process.env.REACT_APP_OMDB_API_KEY}`
       )
       .then((res) => {
         setSearch((search) => ({
